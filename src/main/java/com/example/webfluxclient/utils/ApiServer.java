@@ -1,4 +1,4 @@
-package com.example.webfluxclient.apis;
+package com.example.webfluxclient.utils;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

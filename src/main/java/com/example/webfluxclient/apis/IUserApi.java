@@ -1,6 +1,7 @@
 package com.example.webfluxclient.apis;
 
 import com.example.webfluxclient.model.MyEvent;
+import com.example.webfluxclient.utils.ApiServer;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -10,7 +11,7 @@ import reactor.core.publisher.Mono;
  * @do 用于直接调用webflux接口的声明式客户端
  * @date 2018/07/03 9:23
  */
-@ApiServer("http://localhost:8080")
+@ApiServer("http://localhost:8080/event")
 public interface IUserApi {
 
     @GetMapping("/")
@@ -23,6 +24,6 @@ public interface IUserApi {
     Mono<Void> deleteMyEventById(@PathVariable("id") String id);
 
     @PostMapping("/")
-    Mono<MyEvent> createMyEvent(@RequestBody MyEvent myEvent);
+    Mono<MyEvent> createMyEvent(@RequestBody Mono<MyEvent> myEvent);
 
 }
